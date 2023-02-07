@@ -10,7 +10,7 @@ class PlanOfDay(models.Model):
 
 class PlanOfWeek(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
-    day = models.CharField(max_length=255)
+    week_of_year = models.CharField(max_length=255)
     task = models.CharField(max_length=255)
 
 class PlanOfMonth(models.Model):

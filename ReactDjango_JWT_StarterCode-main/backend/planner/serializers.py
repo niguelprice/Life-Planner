@@ -12,7 +12,7 @@ class PlanofDaySerializer(serializers.ModelSerializer):
 class PlanofWeekSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlanOfWeek
-        fields = ['id', 'day', 'task' ,'user_id']
+        fields = ['id', 'week_of_year', 'task' ,'user_id']
         depth = 1
 
 class PlanofMonthSerializer(serializers.ModelSerializer):

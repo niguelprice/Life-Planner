@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "3ac3f156-9ba1-4cf8-bab3-052e2f9aebbb",
+		"name": "Planner_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Planner_Authentication",
+			"item": [
+				{
+					"name": "Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"nigue3\",\r\n    \"password\": \"Football3@\",\r\n    \"email\": \"nigue@devcodecamp.com\",\r\n    \"first_name\": \"Nigue\",\r\n    \"last_name\": \"Pryce\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"nigue3\",\r\n    \"password\": \"Football3@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh_Access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"PASTE REFRESH TOKEN FROM LOGIN HERE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get_All_Plans_OF_Day",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Task_For_Plan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"day\": \"Wednesday\",\r\n        \"time\": \"5am - 12pm\",\r\n        \"task\": \"Sleep\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Day_Plan_Tasks_For_Day",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/day/Wednesday/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"day",
+						"Wednesday",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Day_Plan_Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"day\": \"Wednesday\",\r\n        \"time\": \"4am - 11am\",\r\n        \"task\": \"Sleep\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Day_Plan_Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/5/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Plans_Of_Week",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/week_of_year/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"week_of_year",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Task_For_Week",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1,\r\n        \"week_of_year\": \"4\",\r\n        \"task\": \"Go up 5 pounds to bench press 210\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/week_of_year/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"week_of_year",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Week_Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"week_of_year\": \"4\",\r\n        \"task\": \"Go up 5 pounds to bench press 215\"\r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/week_of_year/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"week_of_year",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Week_Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/week_of_year/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"week_of_year",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Plans_Of_Month",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/month/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"month",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Goal_Of_Month",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"month\": \"February\",\r\n        \"goal\": \"Bench press 2275\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/month/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"month",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Goal_Of_Month",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"month\": \"February\",\r\n        \"goal\": \"Bench press 225\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/month/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"month",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Goal_Of_Month",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2MjI5NDQyLCJpYXQiOjE2NzUzNjU0NDIsImp0aSI6ImRjMDRhYjE4YWMwYzRlMTdiNGEyNWNkMjk5ZGU1NGRmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.Q5C1syjJzm_5D51nmzJdMt62aY14H4M9_6gLpFEXAgg",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/planner/month/3/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"planner",
+						"month",
+						"3",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
