@@ -12,6 +12,8 @@ import DisplayWeeklyTask from "./components/DisplayWeekTask/DisplayWeeklyTask";
 import AddWeeklyTask from "./components/AddWeeklyTask/AddWeeklyTask";
 import DisplayMonthlyTask from "./components/DisplayMonthlyTask/DisplayMonthlyTask";
 import AddMonthlyTask from "./components/AddMonthlyTask/AddMonthlyTask";
+import EditDailyTask from "./components/EditDailyTask/EditDailyTask";
+import DeleteDailyTask from "./components/DeleteDailyTask/DeleteDailyTask";
 
 
 // Component Imports
@@ -61,13 +63,24 @@ function App() {
       };
 
       async function updateDailyTasks(id){
-        let editDailyTask = await axios.put(`http://127.0.0.1:8000/api/planner/${id}`, {
+        let editDailyTask = await axios.put("http://127.0.0.1:8000/api/planner/", id, {
               headers: {
                 Authorization: "Bearer " + token,
               },
+              body: JSON.stringify(id)
             },);
             fetchDailyTasks(editDailyTask.data); 
         };
+
+        async function deleteDailyTasks(id){
+          let deleteDailyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/`, id, {
+                headers: {
+                  Authorization: "Bearer " + token,
+                },
+              },);
+              fetchDailyTasks(deleteDailyTask.data); 
+          };
+
         async function fetchWeeklyTasks(){
           const response = await axios.get("http://127.0.0.1:8000/api/planner/week_of_year/", {
                 headers: {
@@ -116,6 +129,8 @@ function App() {
                 <div className="border-box">
                   <DisplayDailyTask data={dailyTasks} />
                   <AddDailyTask AddDailyTaskProperty={postDailyTasks} />
+                  <EditDailyTask data={updateDailyTasks}/>
+                  <DeleteDailyTask data={deleteDailyTasks}/>
                 </div>
                 <div className="border-box">
                   <DisplayWeeklyTask data={weeklyTasks}/>
