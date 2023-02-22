@@ -13,6 +13,8 @@ import AddWeeklyTask from "./components/AddWeeklyTask/AddWeeklyTask";
 import DisplayMonthlyTask from "./components/DisplayMonthlyTask/DisplayMonthlyTask";
 import AddMonthlyTask from "./components/AddMonthlyTask/AddMonthlyTask";
 import EditDailyTask from "./components/EditDailyTask/EditDailyTask";
+import EditWeeklyTask from "./components/EditWeeklyTask/EditWeeklyTask";
+import EditMonthlyTask from "./components/EditMonthlyTask/EditMonthlyTask";
 import DeleteDailyTask from "./components/DeleteDailyTask/DeleteDailyTask";
 
 
@@ -62,18 +64,17 @@ function App() {
           fetchDailyTasks(tempDailyTask.data); 
       };
 
-      async function updateDailyTasks(id){
-        let editDailyTask = await axios.put("http://127.0.0.1:8000/api/planner/", id, {
+      async function updateDailyTasks(dailytasks){
+        let editDailyTask = await axios.put(`http://127.0.0.1:8000/api/planner/${dailytasks.id}/`, dailytasks, {
               headers: {
                 Authorization: "Bearer " + token,
               },
-              body: JSON.stringify(id)
             },);
             fetchDailyTasks(editDailyTask.data); 
         };
 
-        async function deleteDailyTasks(id){
-          let deleteDailyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/`, id, {
+        async function deleteDailyTasks(dailytasks){
+          let deleteDailyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/${dailytasks.id}/`, dailytasks, {
                 headers: {
                   Authorization: "Bearer " + token,
                 },
@@ -98,6 +99,16 @@ function App() {
                 },);
                 fetchWeeklyTasks(tempWeeklyTask.data); 
             };
+
+            async function updateWeeklyTasks(weeklytasks){
+              let editWeeklyTask = await axios.put(`http://127.0.0.1:8000/api/planner/week_of_year/${weeklytasks.id}/`, weeklytasks, {
+                    headers: {
+                      Authorization: "Bearer " + token,
+                    },
+                  },);
+                  fetchWeeklyTasks(editWeeklyTask.data); 
+              };
+
             async function fetchMonthlyTasks(){
               const response = await axios.get("http://127.0.0.1:8000/api/planner/month/", {
                     headers: {
@@ -114,6 +125,15 @@ function App() {
                     },);
                     fetchMonthlyTasks(tempMonthlyTask.data); 
                 };
+
+                async function updateMonthlyTasks(monthlytasks){
+                  let editMonthlyTask = await axios.put(`http://127.0.0.1:8000/api/planner/month/${monthlytasks.id}/`, monthlytasks, {
+                        headers: {
+                          Authorization: "Bearer " + token,
+                        },
+                      },);
+                      fetchMonthlyTasks(editMonthlyTask.data); 
+                  };
     
 
 
@@ -135,10 +155,12 @@ function App() {
                 <div className="border-box">
                   <DisplayWeeklyTask data={weeklyTasks}/>
                   <AddWeeklyTask AddWeeklyTaskProperty={postweeklyTasks}/>
+                  <EditWeeklyTask data={updateWeeklyTasks}/>
                 </div>
                 <div className="border-box">
                   <DisplayMonthlyTask data={monthlyTask} />
                   <AddMonthlyTask AddMonthlyTaskProperty={postMonthlyTasks}/>
+                  <EditMonthlyTask data={updateMonthlyTasks}/>
                 </div>
               </div>
             </PrivateRoute>

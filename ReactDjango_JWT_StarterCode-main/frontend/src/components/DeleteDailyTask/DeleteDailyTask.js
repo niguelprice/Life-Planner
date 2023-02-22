@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 
 const DeleteDailyTask = (props) => {
-    const [id, setId] = useState('');
+    const [id, setId] = useState({});
     
 
     function handleSubmit(event){
         event.preventDefault();
-        let deleteDailyTask = {
+        let eraseDailyTask = {
             id: id,
         };
-        console.log(deleteDailyTask)
-        props.data(deleteDailyTask)
+        console.log(eraseDailyTask)
+        props.data(eraseDailyTask)
         
     }
 
