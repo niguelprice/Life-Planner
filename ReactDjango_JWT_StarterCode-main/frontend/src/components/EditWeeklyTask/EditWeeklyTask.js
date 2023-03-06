@@ -26,7 +26,7 @@ const EditWeeklyTask = (props) => {
         <input type='' value={week_of_year} onChange={(event) => setWeek_of_year(event.target.value)}/>
         <label>Task</label>
         <input type='' value={task} onChange={(event) => setTask(event.target.value)}/>
-        <button type='submit'>Edit Weekly Task</button>
+        <button type='submit'>Update Weekly Task</button>
         </form> 
      );
 }

@@ -16,6 +16,9 @@ import EditDailyTask from "./components/EditDailyTask/EditDailyTask";
 import EditWeeklyTask from "./components/EditWeeklyTask/EditWeeklyTask";
 import EditMonthlyTask from "./components/EditMonthlyTask/EditMonthlyTask";
 import DeleteDailyTask from "./components/DeleteDailyTask/DeleteDailyTask";
+import DeleteWeeklyTask from "./components/DeleteWeeklyTask/DeleteWeeklyTask";
+import DeleteMonthlyTask from "./components/DeleteMonthlyTask/DeleteMonthlyTask";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 
 // Component Imports
@@ -74,7 +77,7 @@ function App() {
         };
 
         async function deleteDailyTasks(dailytasks){
-          let deleteDailyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/${dailytasks.id}/`, dailytasks, {
+          let deleteDailyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/${dailytasks.id}/`, {
                 headers: {
                   Authorization: "Bearer " + token,
                 },
@@ -92,7 +95,7 @@ function App() {
           };
 
           async function postweeklyTasks(weeklyTasks){
-            let tempWeeklyTask = await axios.post("http://127.0.0.1:8000/api/planner/", weeklyTasks, {
+            let tempWeeklyTask = await axios.post("http://127.0.0.1:8000/api/planner/week_of_year/", weeklyTasks, {
                   headers: {
                     Authorization: "Bearer " + token,
                   },
@@ -108,6 +111,15 @@ function App() {
                   },);
                   fetchWeeklyTasks(editWeeklyTask.data); 
               };
+              
+              async function deleteWeeklyTasks(weeklytasks){
+                let deleteWeeklyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/week_of_year/${weeklytasks.id}/`, {
+                      headers: {
+                        Authorization: "Bearer " + token,
+                      },
+                    },);
+                    fetchWeeklyTasks(deleteWeeklyTask.data); 
+                };
 
             async function fetchMonthlyTasks(){
               const response = await axios.get("http://127.0.0.1:8000/api/planner/month/", {
@@ -118,7 +130,7 @@ function App() {
                   setMonthlyTasks(response.data); 
               };
               async function postMonthlyTasks(monthlyTasks){
-                let tempMonthlyTask = await axios.post("http://127.0.0.1:8000/api/planner/", monthlyTasks, {
+                let tempMonthlyTask = await axios.post("http://127.0.0.1:8000/api/planner/month/", monthlyTasks, {
                       headers: {
                         Authorization: "Bearer " + token,
                       },
@@ -134,14 +146,24 @@ function App() {
                       },);
                       fetchMonthlyTasks(editMonthlyTask.data); 
                   };
-    
 
+                  async function deleteMonthlyTasks(monthlytasks){
+                    let deleteMonthlyTask = await axios.delete(`http://127.0.0.1:8000/api/planner/month/${monthlytasks.id}/`, {
+                          headers: {
+                            Authorization: "Bearer " + token,
+                          },
+                        },);
+                        fetchMonthlyTasks(deleteMonthlyTask.data); 
+                    };
+ 
+  
 
   return (
     <div>
       <Navbar />
+      <div style={{'background-color': 'lightsalmon'}}>
       <Routes >
-        <Route
+        <Route 
           path="/"
           element={ 
             <PrivateRoute >
@@ -156,11 +178,13 @@ function App() {
                   <DisplayWeeklyTask data={weeklyTasks}/>
                   <AddWeeklyTask AddWeeklyTaskProperty={postweeklyTasks}/>
                   <EditWeeklyTask data={updateWeeklyTasks}/>
+                  <DeleteWeeklyTask data={deleteWeeklyTasks}/>
                 </div>
                 <div className="border-box">
                   <DisplayMonthlyTask data={monthlyTask} />
                   <AddMonthlyTask AddMonthlyTaskProperty={postMonthlyTasks}/>
                   <EditMonthlyTask data={updateMonthlyTasks}/>
+                  <DeleteMonthlyTask data={deleteMonthlyTasks}/>
                 </div>
               </div>
             </PrivateRoute>
@@ -170,6 +194,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       
+    </div>
     </div>
   );
 }

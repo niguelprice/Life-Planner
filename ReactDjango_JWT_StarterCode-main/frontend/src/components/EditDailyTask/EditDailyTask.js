@@ -29,7 +29,7 @@ const EditDailyTask = (props) => {
         <input type='' value={time} onChange={(event) => setTime(event.target.value)}/>
         <label>Task</label>
         <input type='' value={task} onChange={(event) => setTask(event.target.value)}/>
-        <button type='submit'>Edit Daily Task</button>
+        <button type='submit'>Update Daily Task</button>
     </form> );
 }
  

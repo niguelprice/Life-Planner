@@ -27,7 +27,7 @@ const EditMonthlyTask = (props) => {
         <input type='' value={month} onChange={(event) => setMonth(event.target.value)}/>
         <label>Goal</label>
         <input type='' value={goal} onChange={(event) => setGoal(event.target.value)}/>
-        <button type='submit'>Edit Monthly Task</button>
+        <button type='submit'>Update Monthly Task</button>
         </form> 
      );
 }

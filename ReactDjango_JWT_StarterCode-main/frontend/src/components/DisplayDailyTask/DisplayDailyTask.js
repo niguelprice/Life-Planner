@@ -1,4 +1,5 @@
 import CustomButton from "../CustomButton/CustomButton";
+import ProgressBar from "../ProgressBar/ProgressBar";
 const DisplayDailyTask = (props) => {
     return (
         <table className="table">
@@ -20,7 +21,7 @@ const DisplayDailyTask = (props) => {
                 <td>{dailyTasks.time}</td>
                 <td>{dailyTasks.task}</td>
                 <td>
-                  {<CustomButton message='Complete/Incomplete'/>}
+                  {<ProgressBar message='Complete/Incomplete'/>}
                 </td>
               </tr>
               );

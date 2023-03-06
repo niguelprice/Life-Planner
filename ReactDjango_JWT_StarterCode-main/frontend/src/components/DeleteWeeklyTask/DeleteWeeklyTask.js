@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-const DeleteDailyTask = (props) => {
+const DeleteWeeklyTask = (props) => {
     const [id, setId] = useState('');
 
     function handleSubmit(event){
         event.preventDefault();
-        let eraseDailyTask = {
+        let eraseWeeklyTask = {
             id : id
         };
-        console.log(eraseDailyTask)
-        props.data(eraseDailyTask)
+        console.log(eraseWeeklyTask)
+        props.data(eraseWeeklyTask)
         
     }
 
@@ -17,9 +17,9 @@ const DeleteDailyTask = (props) => {
         <form onSubmit={handleSubmit}>
             <label>ID</label>
             <input type='' value={id} onChange={(event) => setId(event.target.value)}/>
-            <button type='submit'>Delete Daily Task</button>
+            <button type='submit'>Delete Weekly Task</button>
         </form>
     );
 }
  
-export default DeleteDailyTask;
+export default DeleteWeeklyTask;
