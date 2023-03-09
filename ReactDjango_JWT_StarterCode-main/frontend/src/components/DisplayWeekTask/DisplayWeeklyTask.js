@@ -1,4 +1,4 @@
-import CustomButton from "../CustomButton/CustomButton";
+import ProgressBar from "../ProgressBar/ProgressBar";
 const DisplayWeeklyTask = (props) => {
     return ( <table className="table">
         <thead>
@@ -17,7 +17,7 @@ const DisplayWeeklyTask = (props) => {
                 <td>{weeklyTasks.week_of_year}</td>
                 <td>{weeklyTasks.task}</td>
                 <td>
-                  {<CustomButton message='Like/Dislike'/>}
+                 {<ProgressBar message='Complete/Incomplete'/>}
                 </td>
               </tr>
               );

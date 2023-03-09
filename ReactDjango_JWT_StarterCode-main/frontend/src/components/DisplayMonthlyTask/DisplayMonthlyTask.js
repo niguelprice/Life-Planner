@@ -1,4 +1,4 @@
-import CustomButton from "../CustomButton/CustomButton";
+import ProgressBar from "../ProgressBar/ProgressBar";
 const DisplayMonthlyTask = (props) => {
     return ( <table className="table">
         <thead>
@@ -17,7 +17,7 @@ const DisplayMonthlyTask = (props) => {
                 <td>{monthlyTasks.month}</td>
                 <td>{monthlyTasks.goal}</td>
                 <td>
-                  {<CustomButton message='Like/Dislike'/>}
+                {<ProgressBar message='Complete/Incomplete'/>}
                 </td>
               </tr>
               );
