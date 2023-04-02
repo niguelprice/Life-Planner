@@ -18,7 +18,7 @@ import EditMonthlyTask from "./components/EditMonthlyTask/EditMonthlyTask";
 import DeleteDailyTask from "./components/DeleteDailyTask/DeleteDailyTask";
 import DeleteWeeklyTask from "./components/DeleteWeeklyTask/DeleteWeeklyTask";
 import DeleteMonthlyTask from "./components/DeleteMonthlyTask/DeleteMonthlyTask";
-import ProgressBar from "./components/ProgressBar/ProgressBar";
+
 
 
 // Component Imports
@@ -191,7 +191,7 @@ function App() {
           }
         />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />}  />
       </Routes>
       
     </div>

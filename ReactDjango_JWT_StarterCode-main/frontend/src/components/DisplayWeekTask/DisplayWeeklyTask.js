@@ -6,7 +6,7 @@ const DisplayWeeklyTask = (props) => {
             <th>ID</th>
             <th>week_of_year</th>
             <th>Task</th>
-            <th>Complete/Incomplete</th>
+            <th>Click complete button to change %</th>
           </tr>
         </thead>
         <tbody>

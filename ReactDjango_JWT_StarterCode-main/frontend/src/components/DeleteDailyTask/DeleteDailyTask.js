@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 const DeleteDailyTask = (props) => {
     const [id, setId] = useState('');
 
-    function handleSubmit(event){
+    function handleDelete(event){
         event.preventDefault();
         let eraseDailyTask = {
             id : id
@@ -14,10 +14,10 @@ const DeleteDailyTask = (props) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleDelete}>
             <label>ID</label>
             <input type='' value={id} onChange={(event) => setId(event.target.value)}/>
-            <button type='submit'>Delete Daily Task</button>
+            <button type='delete'>Delete Daily Task</button>
         </form>
     );
 }

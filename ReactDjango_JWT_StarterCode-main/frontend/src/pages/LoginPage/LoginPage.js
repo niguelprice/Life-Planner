@@ -45,6 +45,11 @@ const LoginPage = () => {
         <Link to="/register">Click to register!</Link>
         <button>Login!</button>
       </form>
+      <div>
+        <h5>
+          PLAN YOUR LIFE
+        </h5>
+      </div>
     </div>
   );
 };

@@ -9,7 +9,7 @@ const DisplayDailyTask = (props) => {
             <th>Day</th>
             <th>Time</th>
             <th>Task</th>
-            <th>Complete/Incomplete</th>
+            <th>Click complete button to change %</th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +21,7 @@ const DisplayDailyTask = (props) => {
                 <td>{dailyTasks.time}</td>
                 <td>{dailyTasks.task}</td>
                 <td>
-                  {<ProgressBar message='Complete/Incomplete'/>}
+                  {<ProgressBar/>}
                 </td>
               </tr>
               );

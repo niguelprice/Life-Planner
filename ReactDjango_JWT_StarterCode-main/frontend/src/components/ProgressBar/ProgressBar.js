@@ -1,38 +1,37 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const ProgressBar = () => {
-  const [isTaskCompleted, setIsTaskCompleted] = useState(false);
-  const [progress, setProgress] = useState(0);
+function ProgressBar() {
+  const [percentage, setPercentage] = useState(0);
 
-  const handleTaskCompletion = () => {
-    setIsTaskCompleted(true);
-    setProgress(100);
+  const handleClick = () => {
+    if (percentage < 100) {
+      setPercentage(percentage + 100);
+    }
   };
+  const handleReset = () => {
+    setPercentage(0);
+  };
+
+
+  const buttonList = ['Completed'];
 
   return (
     <div>
-      {!isTaskCompleted ? (
-        <button onClick={handleTaskCompletion}>Complete</button>
-      ) : (
-        <p>You've completed this task!</p>
-      )}
-      <div style={{ width: "100%", height: "20px", backgroundColor: "lightgray" }}>
-        <div
-          style={{
-            width: `${progress}%`,
-            height: "100%",
-            backgroundColor: "green",
-          }}
-        />
+      <div>Percentage: {percentage}%</div>
+      <div>
+        {buttonList.map((button) => (
+          <button key={button} onClick={handleClick}>
+            {button}
+          </button>
+        ))}
       </div>
-    </div>
+    <button onClick={handleReset}>Reset</button>
+  </div>
   );
-};
-
-
-
+}
 
 export default ProgressBar;
+
 
 
  
