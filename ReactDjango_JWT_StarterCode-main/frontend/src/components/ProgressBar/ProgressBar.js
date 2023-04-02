@@ -13,7 +13,7 @@ function ProgressBar() {
   };
 
 
-  const buttonList = ['Completed'];
+  const buttonList = ['Complete'];
 
   return (
     <div>
