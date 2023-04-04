@@ -38,7 +38,7 @@ const DisplayDailyTask = (props) => {
             <th>Day</th>
             <th>Time</th>
             <th>Task</th>
-            <th>Click complete button to change %</th>
+            <th>Click button to change completion %</th>
           </tr>
         </thead>
         <tbody>

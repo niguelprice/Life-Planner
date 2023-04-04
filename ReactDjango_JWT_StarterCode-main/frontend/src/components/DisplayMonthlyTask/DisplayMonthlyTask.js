@@ -31,7 +31,7 @@ const DisplayMonthlyTask = (props) => {
             <th>ID</th>
             <th>Month</th>
             <th>Goal</th>
-            <th>Click complete button to change %</th>
+            <th>Click button to change completion %</th>
           </tr>
         </thead>
         <tbody>

@@ -31,7 +31,7 @@ const DisplayWeeklyTask = (props) => {
             <th>ID</th>
             <th>week_of_year</th>
             <th>Task</th>
-            <th>Click complete button to change %</th>
+            <th>Click button to change completion %</th>
           </tr>
         </thead>
         <tbody>
